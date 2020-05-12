@@ -1,13 +1,6 @@
 // from data.js
 var tableData = data;
 
-// selecting filter button
-var button = d3.select("#filter-btn");
-// selecting input field
-var inputField = d3.select("#datetime");
-// selecting dateFilter input
-var dateFilterInput = d3.select("#date-filter");
-
 // populating table function
 function populateTable(dataToDisplay){
     // emptying initial table
@@ -24,32 +17,21 @@ function populateTable(dataToDisplay){
     });
 }
 
+//initial population of the table
+populateTable(data);
+
+var dateFilterInput = d3.selectAll(".input-filter");
+
 //define filter criteria function
-function filterDateCriteria(data, filterElement){
-    return data.filter(function(date){
-        return date.datetime.startsWith(filterElement,0)
+function filterCriteria(objectList, objectProperty, filterElement){
+    return objectList.filter(function(item){
+        return item[objectProperty].startsWith(filterElement,0)
     })
 }
 
-// function for handling filter button
-function handleClick(){
-    //defining filtering value and returning the filtered data
-    var filterValue = inputField.property("value")
-    var filteredData = filterDateCriteria(data, filterValue)
-    // defining which data to print
-    if (filterValue.length === 0) {
-        populateTable(data)
-    }
-    else{
-        populateTable(filteredData)
-    }
-    
-}
 
-//button event handler
-button.on("click", handleClick)
 
-function dateFilterValue(){
+function autoCompleteFilterValue(){
     //get the last key typed
     var lastKeyTyped = d3.event.key
     
@@ -66,26 +48,20 @@ function dateFilterValue(){
     return stringStored
 }
 
-//initial population of the table
-populateTable(data);
 
-// //input field event handler
-// dateFilterInput.on("keydown", function(){
-//     let filterValue = dateFilterValue();
-//     let filteredData = filterDateCriteria(data, filterValue)
-//     populateTable(filteredData)
-// })
 
-//generate datalist for selection
+//generate datalist for autocomplete
 dateFilterInput.on("keydown", function(){
-    let filterValue = dateFilterValue();
-    let filteredData = filterDateCriteria(data, filterValue)
+    let filterValue = autoCompleteFilterValue();
+    let filteredData = filterCriteria(data, "datetime", filterValue)
     populateDropDown(filteredData, "datetime")
+    console.log(this)
 })
 
+//filter table
 dateFilterInput.on("change", function(){
     let filterValue = dateFilterInput._groups[0][0].value;
-    let filteredData = filterDateCriteria(data, filterValue)
+    let filteredData = filterCriteria(data, "datetime", filterValue)
     console.log(filterValue, filteredData)
     populateTable(filteredData)
 })
@@ -101,11 +77,12 @@ function populateDropDown(objectList, objectProperty){
     })
 
     //remove all options
-    d3.selectAll("#date-time>option").remove()
-    var dropDown = d3.select("#date-time");
-
+    d3.selectAll("#date-dropdown>option").remove()
+    var dropDown = d3.select("#date-dropdown");
+    console.log(dropDown)
     dropDownList.forEach(item => { 
         option = dropDown.append("option")._groups[0][0];
+        console.log(dropDown)
         option.text = item;
 
         })

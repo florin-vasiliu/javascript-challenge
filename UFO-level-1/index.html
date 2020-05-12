@@ -27,33 +27,7 @@
     </div>
     <div class="container">
       <div class="row margin-top-50">
-        <div class="col-md-2">
-          <aside class="filters">
-            <div class="panel panel-default">
-              <div class="panel-heading">Filter Search</div>
-              <div class="panel-body">
-                <form>
-                  <div class="form-group">
-                    <ul class="list-group" id="filters">
-                      <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <!--addition of button group-->
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                    <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
-                    <button id="filter-btn" type="button" class="btn btn-default">Filter Date</button>
-                  </div>
-                
-                </form>
-              </div>
-            </div>
-          </aside>
-        </div>
-        <div class="col-md-10">
+        <div class="column">
           <div id="table-area" class="">
             
             <table id="ufo-table" class="table table-striped">
@@ -70,20 +44,25 @@
                 <tr>
                   <th class="table-head" id='date-filter-tbl'>
                     <input
-                      id='date-filter' 
+                      class='input-filter' 
                       type="text" 
                       style="width: 100%;" 
                       placeholder="1/1/2010"
-                      list="date-time" 
+                      list="date-dropdown" 
                       value="">
-                      <datalist id="date-time" style="display: flexbox;">
+                      <datalist id="date-dropdown" style="display: flexbox;">
                       </datalist>
                   </th>
                   <th class="table-head">
-                    <select id="selDataset">
-                      <option value="dataset1">DataSet1</option>
-                      <option value="dataset2">DataSet2</option>
-                    </select>
+                    <input
+                      class='input-filter' 
+                      type="text" 
+                      style="width: 100%;" 
+                      placeholder="maricopa"
+                      list="city-dropdown" 
+                      value="">
+                    <datalist id="city-dropdown" style="display: flexbox;">
+                    </datalist>
                   </th>
                   <th class="table-head">State</th>
                   <th class="table-head">Country</th>
