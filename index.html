@@ -27,7 +27,26 @@
     </div>
     <div class="container">
       <div class="row margin-top-50">
-        <div class="column">
+        <div class="col-md-2">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">Filter Search</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <button type='button' class="form-control" id="clear-filter">ClearFilters</button>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-md-10">
           <div id="table-area" class="">
             
             <table id="ufo-table" class="table table-striped">

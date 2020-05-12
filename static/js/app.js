@@ -9,6 +9,20 @@ filterInput._groups[0].forEach(input =>{
     populateDropDown(data, input.list.id, input.list.id)
 })
 
+//clear all filters button
+var btnClear = d3.select("#clear-filter")
+
+//restore initial condition on button click
+btnClear.on("click", function(){
+    htmlTableData = populateTable(data)
+    filterInput._groups[0].forEach(input =>{
+        populateDropDown(data, input.list.id, input.list.id)
+        input.value = ""
+    })
+})
+
+
+
 //generate datalist for autocomplete dropdown list
 filterInput.on("keydown", function(){
     let typedValue = autoCompleteFilterValue(this);
@@ -45,7 +59,7 @@ function filterCriteria(objectCollection, objectKey, filterElement){
     })
 }
 
-// populating table function
+// populating the html table function
 function populateTable(objectCollection){
     // emptying initial table
     d3.selectAll("#ufo-table>tbody>tr").remove()
