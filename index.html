@@ -47,10 +47,10 @@
                       class='input-filter' 
                       type="text" 
                       style="width: 100%;" 
-                      placeholder="1/1/2010"
-                      list="date-dropdown" 
+                      placeholder="<d/m/y>"
+                      list="datetime" 
                       value="">
-                      <datalist id="date-dropdown" style="display: flexbox;">
+                      <datalist id="datetime" style="display: flexbox;">
                       </datalist>
                   </th>
                   <th class="table-head">
@@ -58,17 +58,47 @@
                       class='input-filter' 
                       type="text" 
                       style="width: 100%;" 
-                      placeholder="maricopa"
-                      list="city-dropdown" 
+                      placeholder="<city>"
+                      list="city" 
                       value="">
-                    <datalist id="city-dropdown" style="display: flexbox;">
+                    <datalist id="city" style="display: flexbox;">
                     </datalist>
                   </th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">Country</th>
-                  <th class="table-head">Shape</th>
-                  <th class="table-head">Duration</th>
-                  <th class="table-head">Comments</th>
+                  <th class="table-head">
+                    <input
+                      class='input-filter' 
+                      type="text" 
+                      style="width: 100%;" 
+                      placeholder="<state>"
+                      list="state" 
+                      value="">
+                    <datalist id="state" style="display: flexbox;">
+                    </datalist>
+                  </th>
+                  <th class="table-head">
+                    <input
+                      class='input-filter' 
+                      type="text" 
+                      style="width: 100%;" 
+                      placeholder="<country>"
+                      list="country" 
+                      value="">
+                    <datalist id="country" style="display: flexbox;">
+                    </datalist>
+                  </th>
+                  <th class="table-head">
+                    <input
+                      class='input-filter' 
+                      type="text" 
+                      style="width: 100%;" 
+                      placeholder="<shape>"
+                      list="shape" 
+                      value="">
+                    <datalist id="shape" style="display: flexbox;">
+                    </datalist>
+                  </th>
+                  <th class="table-head"></th>
+                  <th class="table-head"></th>
                 </tr>
               </thead>
               <tbody></tbody>
