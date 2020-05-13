@@ -7,10 +7,10 @@ The assignment's requirements were to render a table onto an html page from a js
 3. dynamic rendering as values are submited into the input fields;
 4. button to clear all filters and re-render the initial table.
 
-<img src="images/tableRendering.png" alt="Table Rendering"> |
+<img src="images/tableRendering.PNG" alt="Table Rendering"> |
 -----------------------|
 Image 1: Overall view|
 
-<img src="images/dropDown.png" alt="Table Rendering"> |
+<img src="images/dropdown.PNG" alt="Table autocomplete"> |
 -----------------------|
 Image 2: Example of autocomplete dropdown list|
